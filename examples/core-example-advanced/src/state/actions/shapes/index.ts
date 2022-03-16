@@ -1,6 +1,7 @@
 export * from './createPencilShape'
 export * from './createArrowShape'
 export * from './createBoxShape'
+export * from './createHeartShape'
 export * from './deleteSelectedShapes'
 export * from './createShapes'
 export * from './updateShapes'

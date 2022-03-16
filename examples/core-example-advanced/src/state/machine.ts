@@ -293,6 +293,49 @@ export const machine = createState({
         },
       },
     },
+
+    heart: {
+      onEnter: 'setTransformPerformanceMode',
+      initial: 'idle',
+      states: {
+        idle: {
+          on: {
+            STARTED_POINTING: {
+              do: 'setInitialPoint',
+              to: 'heart.pointing',
+            },
+          },
+        },
+        pointing: {
+          on: {
+            MOVED_POINTER: {
+              if: 'hasLeftDeadZone',
+              to: 'heart.creating',
+            },
+            STOPPED_POINTING: {
+              to: 'heart.idle',
+            },
+          },
+        },
+        creating: {
+          onEnter: ['createHeartShape', 'setSnapshot'],
+          on: {
+            TOGGLED_MODIFIER: 'transformSelectedShapes',
+            MOVED_POINTER: 'transformSelectedShapes',
+            PANNED: 'transformSelectedShapes',
+            CANCELLED: {
+              do: 'deleteSelectedShapes',
+              to: 'select',
+            },
+            STOPPED_POINTING: {
+              do: 'addToHistory',
+              to: 'select',
+            },
+          },
+        },
+      },
+    },
+
     box: {
       onEnter: 'setTransformPerformanceMode',
       initial: 'idle',

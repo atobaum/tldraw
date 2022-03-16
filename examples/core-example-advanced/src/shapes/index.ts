@@ -2,17 +2,19 @@ import type { CustomShapeUtil } from './CustomShapeUtil'
 import { ArrowShape, ArrowUtil } from './arrow'
 import { BoxShape, BoxUtil } from './box'
 import { PencilShape, PencilUtil } from './pencil'
+import { HeartShape, HeartUtil } from './heart'
 
 export * from './arrow'
 export * from './pencil'
 export * from './box'
 
-export type Shape = BoxShape | ArrowShape | PencilShape
+export type Shape = BoxShape | ArrowShape | PencilShape | HeartShape
 
 export const shapeUtils = {
   box: new BoxUtil(),
   arrow: new ArrowUtil(),
   pencil: new PencilUtil(),
+  heart: new HeartUtil(),
 }
 
 export const getShapeUtils = <T extends Shape>(shape: T | T['type']) => {
