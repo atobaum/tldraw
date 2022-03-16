@@ -16,6 +16,7 @@ export function usePosition(bounds: TLBounds, rotation = 0) {
       calc(${bounds.minY}px - var(--tl-padding))
     )
     rotate(${rotation + (bounds.rotation || 0)}rad)`
+
       elm.style.setProperty('transform', transform)
       elm.style.setProperty(
         'width',

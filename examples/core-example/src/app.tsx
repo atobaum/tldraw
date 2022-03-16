@@ -13,8 +13,18 @@ const page = new Page({
       parentId: 'page1',
       name: 'Rect',
       childIndex: 1,
-      rotation: 0,
-      point: [0, 0],
+      rotation: 3.14,
+      point: [200, 200],
+      size: [100, 100],
+    },
+    rect2: {
+      id: 'rect2',
+      type: 'rect',
+      parentId: 'page1',
+      name: 'Rect2',
+      childIndex: 2,
+      rotation: (1 / 4) * Math.PI,
+      point: [400, 200],
       size: [100, 100],
     },
   },
@@ -29,6 +39,7 @@ const shapeUtils: TLShapeUtilsMap<Shape> = {
 
 export default observer(function App(): JSX.Element {
   const onHoverShape: TLPointerEventHandler = (e) => {
+    console.log('onHoverShape', e)
     pageState.setHoveredId(e.target)
   }
 
