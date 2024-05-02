@@ -29,7 +29,7 @@
     "@tldraw/tldraw": "^1.9.2",
     "@types/next-auth": "^3.15.0",
     "aws-sdk": "^2.1053.0",
-    "next": "^12.0.7",
+    "next": "^14.2.3",
     "next-auth": "^4.0.5",
     "next-pwa": "^5.4.4",
     "next-themes": "^0.0.15",
